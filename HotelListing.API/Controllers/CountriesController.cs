@@ -64,7 +64,6 @@ namespace HotelListing.API.Controllers
                 return BadRequest();
             }
 
-            //_context.Entry(updateCountryDto).State = EntityState.Modified;
 
             var country = await _countriesRepository.GetAsync(id);
 

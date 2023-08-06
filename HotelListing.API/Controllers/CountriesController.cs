@@ -24,7 +24,7 @@ namespace HotelListing.API.Controllers
         public CountriesController(IMapper mapper, ICountriesRepository countriesRepository)
         {
             _mapper = mapper;
-            this._countriesRepository = countriesRepository;
+            _countriesRepository = countriesRepository;
         }
 
         // GET: api/Countries

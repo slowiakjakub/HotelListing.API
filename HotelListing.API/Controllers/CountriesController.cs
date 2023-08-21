@@ -11,6 +11,7 @@ using HotelListing.API.Configurations;
 using AutoMapper;
 using System.Runtime.InteropServices;
 using HotelListing.API.Contracts;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelListing.API.Controllers
 {
@@ -42,7 +43,6 @@ namespace HotelListing.API.Controllers
         public async Task<ActionResult<CountryDto>> GetCountry(int id)
         {
             var country = await _countriesRepository.GetDetails(id);
-       
 
             if (country == null)
             {
@@ -94,8 +94,8 @@ namespace HotelListing.API.Controllers
         }
 
         // POST: api/Countries
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Country>> PostCountry(CreateCountryDto createCountryDto)
         {
             var country = _mapper.Map<Country>(createCountryDto);
